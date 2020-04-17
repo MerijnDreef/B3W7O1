@@ -12,7 +12,7 @@ require "./function.php";
 </head>
 <body>
     <h1>Planning</h1>
-    
+    <!-- <i class="far fa-clock"></i><i class="far fa-calendar-alt"></i> -->
     
 </body>
 </html>
