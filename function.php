@@ -16,6 +16,6 @@ function getAllGames(){
 } 
 function getGames(){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("SELECT id, name, image, min_players, max_players,  FROM planning")
+    $stnt = $conn->prepare("SELECT id, name, image, min_players, max_players,  FROM planning");
 }
 ?>
