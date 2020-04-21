@@ -1,6 +1,6 @@
 <?php
-require "./function.php";
-$result = getAllGames();
+htmlspecialchars(require "./function.php");
+htmlspecialchars($result = getAllGames());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +15,13 @@ $result = getAllGames();
     <h1 id='h1Home'><a id='headerHome' href="index.php">Home</a></h1> <!-- <i class="far fa-clock"></i><i class="far fa-calendar-alt"></i> -->
     <h1><a id='headerPlanning' href="planning.php">planning</a></h1>
    <?php 
-   foreach($result as $game){
+  htmlspecialchars(foreach($result as $game)){
         echo "<div class='doos'>";
-        echo "<img src='images/" . $game['image'] . "'>";
-        echo "<p id='naamText'>" . $game['name'] . "</p>";
-        echo "<p class='persoon'>Minimaal " . $game['min_players'] . " spelers</p>";
-        echo "<p class='persoon'>Maximaal " . $game['max_players'] . " spelers</p>";
-        echo '<a id="gameInfo" href="infogame.php/?name=' . urlencode($game['name']) . '"><i class="fas fa-search"></i>  Info over deze game</a>';
+        echo htmlspecialchars("<img src='images/" . $game['image'] . "'>");
+        echo htmlspecialchars("<p id='naamText'>" . $game['name'] . "</p>");
+        echo htmlspecialchars("<p class='persoon'>Minimaal " . $game['min_players'] . " spelers</p>");
+        echo htmlspecialchars("<p class='persoon'>Maximaal " . $game['max_players'] . " spelers</p>");
+        echo htmlspecialchars('<a id="gameInfo" href="infogame.php/?name=' . urlencode($game['name']) . '"><i class="fas fa-search"></i>  Info over deze game</a>');
         echo "</div>";
    }
     ?>
