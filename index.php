@@ -1,5 +1,6 @@
 <?php
 require "./function.php";
+$result = getAllGames();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +12,18 @@ require "./function.php";
     <title>Deze opdracht</title>
 </head>
 <body>
-    <h1>Planning</h1>
-    <!-- <i class="far fa-clock"></i><i class="far fa-calendar-alt"></i> -->
-    
+    <h1 id='h1Home'><a id='headerHome' href="index.php">Home</a></h1> <!-- <i class="far fa-clock"></i><i class="far fa-calendar-alt"></i> -->
+    <h1><a id='headerPlanning' href="planning.php">planning</a></h1>
+   <?php 
+   foreach($result as $game){
+        echo "<div class='doos'>";
+        echo "<img src='images/" . $game['image'] . "'>";
+        echo "<p id='naamText'>" . $game['name'] . "</p>";
+        echo "<p class='persoon'>Minimaal " . $game['min_players'] . " spelers</p>";
+        echo "<p class='persoon'>Maximaal " . $game['max_players'] . " spelers</p>";
+        echo '<a id="gameInfo" href="infogame.php/?name=' . urlencode($game['name']) . '"><i class="fas fa-search"></i>  Info over deze game</a>';
+        echo "</div>";
+   }
+    ?>
 </body>
 </html>
