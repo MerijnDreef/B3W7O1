@@ -1,7 +1,7 @@
 <?php
 require "./function.php";
 
-
+$result = getGames();
 
 ?>
 <!DOCTYPE html>
@@ -15,6 +15,8 @@ require "./function.php";
 <body>
     <h1 id='h1Home'><a id='headerHome' href="index.php">Home</a></h1> 
     <h1><a id='headerPlanning' href="planning.php">planning</a></h1>
+    <label for='startdate'></label><input type='date' name='startdate' id='startdate'>
+    <label for='starttime'></label><input type='time' name='starttime' id='starttime'>
 <?php
    foreach($result as $planning){
 

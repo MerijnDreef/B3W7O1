@@ -12,10 +12,18 @@ function getAllGames(){
     $conn = openDatabaseConnection();
     $stnt = $conn->prepare("SELECT id, name, image, min_players, max_players, play_minutes, explain_minutes FROM games order by id;");
     $stnt->execute();
-   return $stnt ->fetchAll();
+    return $stnt ->fetchAll();
 } 
 function getGames(){
     $conn = openDatabaseConnection();
     $stnt = $conn->prepare("SELECT id, name, image, min_players, max_players,  FROM planning");
+    $stnt->execute();
+    return $stnt ->fetchAll();
+}
+function getInfoGames(){
+    $conn = openDatabaseConnection();
+    $stnt = $conn->prepare("SELECT id, name, image, min_players, max_players, skills, FROM games");
+    $stnt->execute();
+    return $stnt ->fetchAll();
 }
 ?>
