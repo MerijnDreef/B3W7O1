@@ -16,7 +16,7 @@ function getAllGames(){
 } 
 function getGames(){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("SELECT id, name, image, min_players, max_players,  FROM planning");
+    $stnt = $conn->prepare("SELECT * FROM planning");
     $stnt->execute();
     return $stnt->fetchAll();
 }
@@ -34,7 +34,7 @@ function getCreateGames(){
 }
 function PlanningMeester($gameid, $starttime, $hostname, $players){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("INSERT INTO `planning` (`id`, `gameid`, `starttime`, `host`, `players`) VALUES (NULL, :gameid, :starttime, :hostname, :players)");
+    $stnt = $conn->prepare("INSERT INTO planning (id, gameid, starttime, host, players) VALUES (NULL, :gameid, :starttime, :hostname, :players)");
     $stnt->execute([':gameid' => $gameid, ':starttime' => $starttime, ':hostname' => $hostname, ':players' => $players]);
     return $stnt->errorCode();
 }

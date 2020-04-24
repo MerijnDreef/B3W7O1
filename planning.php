@@ -19,7 +19,7 @@ $result = getGames();
     <h1><a id='headerPlanning' href="create.php">Create planning</a></h1>
 <?php
    foreach($result as $planning){
-
+    
    }
 ?>
     

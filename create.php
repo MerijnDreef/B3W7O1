@@ -1,8 +1,16 @@
 <?php
 require "./function.php";
-
 $result = getCreateGames();
-$result2 = PlanningMeester();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $gameid = $_POST['name'];
+    $dt = new DateTime($_POST['startDate'] . 'T' . $_POST['startTime']);
+    $starttime = $dt->format('Y-m-d\TH:i:s.u');
+    $hostname = $_POST['hostName'];
+    $players = $_POST['playerName'];
+    $result2 = PlanningMeester($gameid, $starttime, $hostname, $players);
+    echo $result2;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +22,7 @@ $result2 = PlanningMeester();
 </head>
 <body>
     <h1><a id='headerCreate' href='planning.php'>Return to planning?</a></h1>
-    <form>
+    <form action='create.php' method='POST'>
         <label for='name'>Name of game:</label><select name="name" id="name-select">
     <?php
     foreach($result as $game){
@@ -26,6 +34,7 @@ $result2 = PlanningMeester();
         <label for='startTime'>Start time:</label><input type='time' name='startTime' id='startTime'>
         <label for='hostName'>Host name</label><input type='text' name='hostName' id='hostName'> 
         <label for='playerName'>Player name</label><input type='text' name='playerName' id='playerName'>
+        <input type="submit" value="update">
     </form>
 </body>
 </html>
