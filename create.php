@@ -1,6 +1,8 @@
 <?php
 require "./function.php";
 
+$result = getCreateGames();
+$result2 = PlanningMeester();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +14,18 @@ require "./function.php";
 </head>
 <body>
     <h1><a id='headerCreate' href='planning.php'>Return to planning?</a></h1>
-    <label for='name'>Name of game:</label><input type='text' name='name' id='name'>
-    <label for='startdate'>Start date:</label><input type='date' name='startdate' id='startdate'>
-    <label for='starttime'>Start time:</label><input type='time' name='starttime' id='starttime'>
+    <form>
+        <label for='name'>Name of game:</label><select name="name" id="name-select">
+    <?php
+    foreach($result as $game){
+    echo "<option value='" . htmlspecialchars($game['id']) . "'>" . htmlspecialchars($game['name']) . "</option>";
+    }
+    ?>
+</select>
+        <label for='startDate'>Start date:</label><input type='date' name='startDate' id='startDate'>
+        <label for='startTime'>Start time:</label><input type='time' name='startTime' id='startTime'>
+        <label for='hostName'>Host name</label><input type='text' name='hostName' id='hostName'> 
+        <label for='playerName'>Player name</label><input type='text' name='playerName' id='playerName'>
+    </form>
 </body>
 </html>
