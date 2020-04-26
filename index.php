@@ -17,11 +17,11 @@ $result = getAllGames();
    <?php 
   foreach($result as $game){
         echo "<div class='doos'>";
-        echo "<img src='images/" . htmlspecialchars($game['image']) . "'>";
+        echo "<img id='indexImg' src='images/" . htmlspecialchars($game['image']) . "'>";
         echo "<p id='naamText'>" . htmlspecialchars($game['name']) . "</p>";
         echo "<p class='persoon'>Minimaal " . htmlspecialchars($game['min_players']) . " spelers</p>";
         echo "<p class='persoon'>Maximaal " . htmlspecialchars($game['max_players']) . " spelers</p>";
-        echo '<a id="gameInfo" href="infogame.php/?name=' . htmlspecialchars(urlencode($game['name'])) . '"><i class="fas fa-search"></i>  Info over deze game</a>';
+        echo '<a id="gameInfo" href="infogame.php?name=' . htmlspecialchars(urlencode($game['name'])) . '"><i class="fas fa-search"></i>  Info over deze game</a>';
         echo "</div>";
    }
     ?>

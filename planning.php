@@ -29,7 +29,7 @@ $result2 = getAllGames();
     echo "<p class='planningText'> StartTime : " . htmlspecialchars($planning['starttime']) . "</p>";
     echo "<p class='planningText'> Host : " . htmlspecialchars($planning['host']) . "</p>";
     echo "<p class='planningText'> Players : " . htmlspecialchars($planning['players']) . "</p>";
-    echo "<p><a id='planningButton' href='delete.php'>Delete?</a></p>";
+    echo "<p><a id='planningButton' href='delete.php?name" . htmlspecialchars(urlencode($planning['id'])) . "'>Delete?</a></p>";
    }
 ?>
 </body>
