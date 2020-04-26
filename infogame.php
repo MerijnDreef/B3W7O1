@@ -1,5 +1,6 @@
 <?php
 require "./function.php";
+$result = getAllGames();
 
 ?>
 <!DOCTYPE html>
@@ -11,6 +12,12 @@ require "./function.php";
     <title>info</title>
 </head>
 <body>
-    
+<h1><a id='headerCreate' href='index.php'>Return to home?</a></h1>
+    <?php
+    foreach(){
+   echo "<div class='infoDiv'>";
+   echo "";
+    }
+    ?>
 </body>
 </html>

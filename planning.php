@@ -2,6 +2,8 @@
 require "./function.php";
 
 $result = getGames();
+$result2 = getAllGames();
+
 
 ?>
 <!DOCTYPE html>
@@ -18,10 +20,17 @@ $result = getGames();
     <h1><a id='headerPlanning' href="planning.php"><i class="far fa-hand-point-right"></i> planning</a></h1>
     <h1><a id='headerPlanning' href="create.php">Create planning</a></h1>
 <?php
-   foreach($result as $planning){
     
+   foreach($result as $planning){
+    $gameBoi = commandThis($planning['gameid']);
+    echo "<div class='planningDoos'>";
+    echo "<img id='planningImg' src='images/" . htmlspecialchars($gameBoi[0]['image']) . "'>";
+    echo "<p class='planningText'> Name : " . htmlspecialchars($gameBoi[0]['name']) . "</p>";
+    echo "<p class='planningText'> StartTime : " . htmlspecialchars($planning['starttime']) . "</p>";
+    echo "<p class='planningText'> Host : " . htmlspecialchars($planning['host']) . "</p>";
+    echo "<p class='planningText'> Players : " . htmlspecialchars($planning['players']) . "</p>";
+    echo "<p><a id='planningButton' href='delete.php'>Delete?</a></p>";
    }
 ?>
-    
 </body>
 </html>

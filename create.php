@@ -1,6 +1,6 @@
 <?php
 require "./function.php";
-$result = getCreateGames();
+$result = getAllGames();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gameid = $_POST['name'];
