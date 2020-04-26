@@ -1,6 +1,6 @@
 <?php
 require "./function.php";
-$result = getAllGames();
+$result = getInfoGames();
 
 ?>
 <!DOCTYPE html>
@@ -14,10 +14,14 @@ $result = getAllGames();
 <body>
 <h1><a id='headerCreate' href='index.php'>Return to home?</a></h1>
     <?php
-    foreach(){
    echo "<div class='infoDiv'>";
-   echo "";
-    }
+   echo "<img src='images/" . htmlspecialchars($result[0]['image']) . "'>";
+   echo "<p class='planningText'>" . htmlspecialchars($result[0]['name']) . "</p>";
+   echo $result[0]['description'];
+   echo "<p class='planningText'> Expansions : " . htmlspecialchars($result[0]['expansions']) . "</p>";
+   echo "<p class='planningText'> Skills : " . htmlspecialchars($result[0]['skills']) . "</p>";
+   echo "<p><a id='planningButton' href='" . htmlspecialchars($result[0]['url']) ."'>Link to the games website</a></p>";
+   echo "</div>";
     ?>
 </body>
 </html>

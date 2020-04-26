@@ -14,6 +14,12 @@ function getAllGames(){
     $stnt->execute();
     return $stnt->fetchAll();
 } 
+function getInfoGames(){
+    $conn = openDatabaseConnection();
+    $stnt = $conn->prepare("SELECT * FROM games ");
+    $stnt->execute();
+    return $stnt->fetchAll();
+}
 function getGames(){
     $conn = openDatabaseConnection();
     $stnt = $conn->prepare("SELECT * FROM planning");
