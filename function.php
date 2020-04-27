@@ -38,4 +38,16 @@ function commandThis($gameid){
     $stnt->execute([':id' => $gameid]);
     return $stnt->fetchall();
 }
+function Deletes($id){
+    $conn = openDatabaseConnection();
+    $stnt = $conn->prepare("DELETE FROM planning WHERE planning . id = :id");
+    $stnt->execute([':id'=> $id]);
+    return $stnt->errorCode();
+}
+function Updates(){
+    $conn = openDatabaseConnection();
+    $stnt = $conn->prepare("UPDATE FROM planning(gameid, starttime, host players WHERE");
+    $stnt->execute();
+    return $stnt->errorCode();
+}
 ?>

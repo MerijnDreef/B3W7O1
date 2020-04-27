@@ -1,6 +1,7 @@
 <?php
-require "./function.php"
+require "./function.php";
 $result = getGames();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +14,10 @@ $result = getGames();
 <body>
     <h1><a id='headerCreate' href='index.php'>Return to planning?</a></h1>
     <p class='planningText'>Type 'DELETE AND CONFIRMED' to Delete this item</p>
-    <input >
-    <?php
-    if(input == 'DELETE AND CONFIRMED')
-    ?>
+    <form action='deleteconfirmed.php' method='POST'>
+    <input type='text' name='input'></input>
+    <input type='hidden' name='id' value='<?php echo htmlspecialchars($_GET['name']); ?>'>
+    <input type='submit' value='Confirm?'>
+    </form>
 </body>
 </html>
