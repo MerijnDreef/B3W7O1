@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hostname = $_POST['hostName'];
     $players = $_POST['playerName'];
     $result2 = PlanningMeester($gameid, $starttime, $hostname, $players);
-    echo $result2;
 }
 ?>
 <!DOCTYPE html>
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for='startTime'>Start time:</label><input type='time' name='startTime' id='startTime'>
         <label for='hostName'>Host name</label><input type='text' name='hostName' id='hostName'> 
         <label for='playerName'>Player name</label><input type='text' name='playerName' id='playerName'>
-        <input type="submit" value="update">
+        <input type="submit" value="Create">
     </form>
 </body>
 </html>

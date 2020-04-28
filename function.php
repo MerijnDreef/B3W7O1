@@ -28,7 +28,7 @@ function getGames(){
 }
 function PlanningMeester($gameid, $starttime, $hostname, $players){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("INSERT INTO planning (id, gameid, starttime, host, players) VALUES (NULL, :gameid, :starttime, :hostname, :players)");
+    $stnt = $conn->prepare("INSERT INTO planning (gameid, starttime, host, players) VALUES (:gameid, :starttime, :hostname, :players)");
     $stnt->execute([':gameid' => $gameid, ':starttime' => $starttime, ':hostname' => $hostname, ':players' => $players]);
     return $stnt->errorCode();
 }
@@ -40,13 +40,14 @@ function commandThis($gameid){
 }
 function Deletes($id){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("DELETE FROM planning WHERE planning . id = :id");
+    $stnt = $conn->prepare("DELETE FROM planning WHERE id = :id");
     $stnt->execute([':id'=> $id]);
     return $stnt->errorCode();
 }
 function Updates(){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("UPDATE FROM planning(gameid, starttime, host players WHERE");
+    // $stnt = $conn->prepare("UPDATE FROM planning(gameid, starttime, host, players WHERE");
+    $stnt = $conn->prepare("UPDATE  planning set gameid = :gameid, starttime = :starttime, host = :hostname , players = :players WHERE id = :id");
     $stnt->execute();
     return $stnt->errorCode();
 }
