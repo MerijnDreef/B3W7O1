@@ -1,6 +1,7 @@
 <?php
 require "./function.php";
 $result = getInfoGames();
+$planning = getPlanningGames();
 
 ?>
 <!DOCTYPE html>
@@ -26,6 +27,9 @@ $result = getInfoGames();
    echo "<p class='planningText'> explain minutes : " . htmlspecialchars($result[0]['explain_minutes']) . "</p>";
    echo $result[0]['youtube'];
    echo "<p><a id='planningButton' href='" . htmlspecialchars($result[0]['url']) ."'>Link to the games website</a></p>";
+   echo "<p class='planningText'> StartTime : " . htmlspecialchars($planning['starttime']) . "</p>";
+   echo "<p class='planningText'> Host : " . htmlspecialchars($planning['host']) . "</p>";
+   echo "<p class='planningText'> Players : " . htmlspecialchars($planning['players']) . "</p>";
    echo "</div>";
     ?>
 </body>

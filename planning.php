@@ -2,7 +2,7 @@
 require "./function.php";
 
 $result = getGames();
-$result2 = getAllGames();
+
 
 
 ?>
@@ -30,7 +30,8 @@ $result2 = getAllGames();
     echo "<p class='planningText'> Host : " . htmlspecialchars($planning['host']) . "</p>";
     echo "<p class='planningText'> Players : " . htmlspecialchars($planning['players']) . "</p>";
     echo "<p><a id='planningButton' href='delete.php?name=" . htmlspecialchars(urlencode($planning['id'])) . "'>Delete?</a></p>";
-    echo "<p><a id='planningButton' href='verander.php?name=" . htmlspecialchars(urlencode($planning['id'])) . "'>Detail change?</a></p>";
+    echo "<p><a id='planningButton' href='verander.php?id=" . htmlspecialchars(urlencode($planning['id'])) . "'>Detail change?</a></p>";
+    echo "<p><a id='planningButton' href='updata_test.php?id=" . htmlspecialchars(urlencode($planning['id'])) . "'>test ?</a></p>";
    }
 ?>
 </body>

@@ -20,6 +20,12 @@ function getInfoGames(){
     $stnt->execute();
     return $stnt->fetchAll();
 }
+function getPlanningGames(){
+    $conn = openDatabaseConnection();
+    $stnt = $conn->prepare("SELECT * FROM planning WHERE id = :id");
+    $stnt->execute();
+    return $stnt->fetchAll();
+}
 function getGames(){
     $conn = openDatabaseConnection();
     $stnt = $conn->prepare("SELECT * FROM planning");
@@ -43,6 +49,12 @@ function Deletes($id){
     $stnt = $conn->prepare("DELETE FROM planning WHERE id = :id");
     $stnt->execute([':id'=> $id]);
     return $stnt->errorCode();
+}
+function getPlanning($id){
+    $conn = openDatabaseConnection();
+    $stnt = $conn->prepare("SELECT * FROM planning where id = :id");
+    $stnt->execute([':id'=> $id]);
+    return $stnt->fetchAll();
 }
 function Updates(){
     $conn = openDatabaseConnection();
