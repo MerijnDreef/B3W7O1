@@ -14,16 +14,16 @@ function getAllGames(){
     $stnt->execute();
     return $stnt->fetchAll();
 } 
-function getInfoGames(){
+function getInfoGames($id){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("SELECT * FROM games ");
-    $stnt->execute();
+    $stnt = $conn->prepare("SELECT * FROM games WHERE id = :id");
+    $stnt->execute([':id' => $id]);
     return $stnt->fetchAll();
 }
-function getPlanningGames(){
+function getPlanningGames($gameid){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("SELECT * FROM planning WHERE id = :id");
-    $stnt->execute();
+    $stnt = $conn->prepare("SELECT * FROM planning WHERE gameid = :gameid");
+    $stnt->execute([':gameid'=> $gameid]);
     return $stnt->fetchAll();
 }
 function getGames(){
@@ -56,11 +56,11 @@ function getPlanning($id){
     $stnt->execute([':id'=> $id]);
     return $stnt->fetchAll();
 }
-function Updates(){
+function Updates($id, $gameid, $starttime, $hostname, $players){
     $conn = openDatabaseConnection();
     // $stnt = $conn->prepare("UPDATE FROM planning(gameid, starttime, host, players WHERE");
-    $stnt = $conn->prepare("UPDATE  planning set gameid = :gameid, starttime = :starttime, host = :hostname , players = :players WHERE id = :id");
-    $stnt->execute();
+    $stnt = $conn->prepare("UPDATE planning set gameid = :gameid, starttime = :starttime, host = :hostname , players = :players WHERE id = :id");
+    $stnt->execute([':id' => $id, ':gameid' => $gameid, 'starttime' => $starttime, ':hostname' => $hostname, ':players' => $players]);
     return $stnt->errorCode();
 }
 ?>

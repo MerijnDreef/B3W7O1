@@ -28,10 +28,13 @@ $result = getPlanning($_GET["id"]);
 ?>
  <br> 
 <form action='veranderconfirmed.php' method='POST'> 
+        
         <label for='startDate'>Start date:</label><input type='date' name='startDate' id='startDate' value='<?php echo $result[0]['starttime']?>'>
         <label for='startTime'>Start time:</label><input type='time' name='startTime' id='startTime' value='<?php echo $result[0]['starttime']; ?>'>
         <label for='hostName'>Host name:</label><input type='text' name='hostName' id='hostName' value='<?php echo $result[0]['host']; ?>'>
         <label for='playerName'>Player name:</label><input type='text' name='playerName' id='playerName' value='<?php echo $result[0]['players']; ?>'>
+        <input type='hidden' name='id' value='<?php echo htmlspecialchars($_GET['id']); ?>'>
+        <input type='hidden' name='gameid' value='<?php echo $result[0]['gameid'];?>'>
         <input type="submit" value="Update">
      </form> 
 <?php foreach($result as $planning){ ?>
