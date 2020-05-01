@@ -26,6 +26,12 @@ function getPlanningGames($gameid){
     $stnt->execute([':gameid'=> $gameid]);
     return $stnt->fetchAll();
 }
+function GamesPlanning(){
+    $conn = openDatabaseConnection();
+    $stnt = $conn->prepare("SELECT * FROM planning order by starttime");
+    $stnt->execute();
+    return $stnt->fetchAll();
+}
 function getGames(){
     $conn = openDatabaseConnection();
     $stnt = $conn->prepare("SELECT * FROM planning");

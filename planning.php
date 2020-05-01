@@ -1,6 +1,6 @@
 <?php
 require "./function.php";
-$result = getGames();
+$result = GamesPlanning();
 ?>
 <!DOCTYPE html>
 <html lang="en">

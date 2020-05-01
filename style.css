@@ -29,10 +29,9 @@ h1{
 .doos{
     background-color:#474747;
     width:49%;
-    height:15rem;
-    padding-bottom:30px;
+    height:16rem;
+    float:left;
     border:0.5px solid grey;
-    display:inline-block;
 }
 #indexImg{
     height:90%;
