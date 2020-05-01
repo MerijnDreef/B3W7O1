@@ -10,7 +10,7 @@ $dbname = "game";
 }
 function getAllGames(){
     $conn = openDatabaseConnection();
-    $stnt = $conn->prepare("SELECT * FROM games order by id;");
+    $stnt = $conn->prepare("SELECT * FROM games order by id");
     $stnt->execute();
     return $stnt->fetchAll();
 } 
@@ -58,7 +58,6 @@ function getPlanning($id){
 }
 function Updates($id, $gameid, $starttime, $hostname, $players){
     $conn = openDatabaseConnection();
-    // $stnt = $conn->prepare("UPDATE FROM planning(gameid, starttime, host, players WHERE");
     $stnt = $conn->prepare("UPDATE planning set gameid = :gameid, starttime = :starttime, host = :hostname , players = :players WHERE id = :id");
     $stnt->execute([':id' => $id, ':gameid' => $gameid, 'starttime' => $starttime, ':hostname' => $hostname, ':players' => $players]);
     return $stnt->errorCode();

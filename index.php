@@ -9,7 +9,7 @@ $result = getAllGames();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/B3W7O1/style.css">
     <script src="https://kit.fontawesome.com/ca88a28f8c.js" crossorigin="anonymous"></script>
-    <title>Deze opdracht</title>
+    <title>Main page</title>
 </head>
 <body>
     <h1 id='h1Home'><a id='headerHome' href="index.php"><i class="far fa-hand-point-right"></i> Home</a></h1> <!-- <i class="far fa-clock"></i><i class="far fa-calendar-alt"></i> -->

@@ -17,7 +17,6 @@ require "./function.php";
         $dt = new DateTime($_POST['startDate'] . 'T' . $_POST['startTime']);
         $starttime = $dt->format('Y-m-d\TH:i:s.u');
         $result = Updates($_POST['id'], $_POST['gameid'], $starttime, $_POST['hostName'], $_POST['playerName']);
-
         echo "<p class='planningText'>StartTime has been confirmed</p>";
     }else{
         echo "<p class='planningText'>Update hasn't been confirmed</p>";

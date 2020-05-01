@@ -28,11 +28,13 @@ $planning = getPlanningGames($_GET['name']);
    echo "<p class='planningText'> explain minutes : " . htmlspecialchars($result['explain_minutes']) . "</p>";
    echo $result['youtube'];
    echo "<p><a id='planningButton' href='" . htmlspecialchars($result['url']) ."'>Link to the games website</a></p>";
+   echo "<p class='planningText'>Planned games : </p>";
     }
    foreach($planning as $planning){
    echo "<p class='planningText'> StartTime : " . htmlspecialchars($planning['starttime']) . "</p>";
    echo "<p class='planningText'> Host : " . htmlspecialchars($planning['host']) . "</p>";
    echo "<p class='planningText'> Players : " . htmlspecialchars($planning['players']) . "</p>";
+   echo "<br>";
      }
    echo "</div>";
     ?>

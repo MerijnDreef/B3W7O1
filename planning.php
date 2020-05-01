@@ -1,10 +1,6 @@
 <?php
 require "./function.php";
-
 $result = getGames();
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +16,6 @@ $result = getGames();
     <h1><a id='headerPlanning' href="planning.php"><i class="far fa-hand-point-right"></i> planning</a></h1>
     <h1><a id='headerPlanning' href="create.php">Create planning</a></h1>
 <?php
-    
    foreach($result as $planning){
     $gameBoi = commandThis($planning['gameid']);
     echo "<div class='planningDoos'>";
@@ -31,7 +26,6 @@ $result = getGames();
     echo "<p class='planningText'> Players : " . htmlspecialchars($planning['players']) . "</p>";
     echo "<p><a id='planningButton' href='delete.php?name=" . htmlspecialchars(urlencode($planning['id'])) . "'>Delete?</a></p>";
     echo "<p><a id='planningButton' href='verander.php?id=" . htmlspecialchars(urlencode($planning['id'])) . "'>Detail change?</a></p>";
-    echo "<p><a id='planningButton' href='updata_test.php?id=" . htmlspecialchars(urlencode($planning['id'])) . "'>test ?</a></p>";
    }
 ?>
 </body>

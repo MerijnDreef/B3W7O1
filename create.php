@@ -1,15 +1,6 @@
 <?php
 require "./function.php";
 $result = getAllGames();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $gameid = $_POST['name'];
-    $dt = new DateTime($_POST['startDate'] . 'T' . $_POST['startTime']);
-    $starttime = $dt->format('Y-m-d\TH:i:s.u');
-    $hostname = $_POST['hostName'];
-    $players = $_POST['playerName'];
-    $result2 = PlanningMeester($gameid, $starttime, $hostname, $players);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h1><a id='headerCreate' href='planning.php'>Return to planning?</a></h1>
-    <form action='create.php' method='POST'>
+    <form action='createconfirmed.php' method='POST'>
         <label for='name'>Name of game:</label><select name="name" id="name-select">
     <?php
     foreach($result as $game){
